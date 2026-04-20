@@ -2,6 +2,7 @@ package paperless
 
 import (
 	"fmt"
+
 	"github.com/go-resty/resty/v2"
 )
 
@@ -16,7 +17,7 @@ type PaperlessClient struct {
 func New(url string, token string) *PaperlessClient {
 	var client = resty.New().
 		//SetDebug(true).
-		SetHostURL(url).
+		SetBaseURL(url).
 		SetHeader("Accept", "application/json; version=3").
 		SetAuthScheme("Token").
 		SetAuthToken(token)
